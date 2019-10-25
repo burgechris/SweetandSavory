@@ -24,12 +24,10 @@ namespace SweetandSavory.Controllers
       _db = db;
     }
 
-    public async Task<ActionResult> Index()
+    public ActionResult Index()
     {
-      var userId = this.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
-      var currentUser = await _userManager.FindByIdAsync(userId);
-      var userFlavors = _db.Flavor.Where(entry => entry.User.Id == currentUser.Id);
-      return View(userFlavors);
+      List<Flavor> model = _db.Flavor.ToList();
+      return View(model);
     }
 
     [Authorize]
@@ -40,10 +38,8 @@ namespace SweetandSavory.Controllers
     }
 
     [HttpPost]
-    public async Task<ActionResult> Create(Flavor flavor, int TreatId)
+    public ActionResult Create(Flavor flavor, int TreatId)
     {
-      var userId = this.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
-      var currentUser = await _userManager.FindByIdAsync(userId);
       _db.Flavor.Add(flavor);
       if (TreatId != 0)
       {
@@ -73,7 +69,7 @@ namespace SweetandSavory.Controllers
       return View(model);
     }
 
-
+    [Authorize]
     public ActionResult Edit(int id)
     {
       var thisFlavor = _db.Flavor.FirstOrDefault(flavor => flavor.FlavorId == id);
@@ -100,6 +96,7 @@ namespace SweetandSavory.Controllers
       ViewBag.TreatId = new SelectList(_db.Treat, "TreatId", "TreatName");
       return View(thisFlavor);
     }
+
     [HttpPost]
     public ActionResult AddTreat(Flavor flavor, int TreatId)
     {
@@ -110,6 +107,8 @@ namespace SweetandSavory.Controllers
       _db.SaveChanges();
       return RedirectToAction("Index");
     }
+
+    [Authorize]
     public ActionResult Delete(int id)
     {
       var thisFlavor = _db.Flavor.FirstOrDefault(flavor => flavor.FlavorId == id);

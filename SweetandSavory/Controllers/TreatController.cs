@@ -64,6 +64,7 @@ namespace SweetandSavory.Controllers
       return View(model);
     }
 
+    [Authorize]
     public ActionResult Edit(int id)
     {
       var thisTreat = _db.Treat.FirstOrDefault(treat => treat.TreatId == id);
@@ -83,12 +84,14 @@ namespace SweetandSavory.Controllers
       return RedirectToAction("Index");
     }
 
+    [Authorize]
     public ActionResult AddFlavor(int id)
     {
       var thisTreat = _db.Treat.FirstOrDefault(treat => treat.TreatId == id);
       ViewBag.FlavorId = new SelectList(_db.Flavor, "FlavorId", "FlavorName");
       return View(thisTreat);
     }
+
     [HttpPost]
     public ActionResult AddFlavor(Treat treat, int FlavorId)
     {
@@ -99,7 +102,8 @@ namespace SweetandSavory.Controllers
       _db.SaveChanges();
       return RedirectToAction("Index");
     }
-    
+
+    [Authorize]
     public ActionResult Delete(int id)
     {
       var thisTreat = _db.Treat.FirstOrDefault(treat => treat.TreatId == id);
@@ -114,6 +118,7 @@ namespace SweetandSavory.Controllers
       _db.SaveChanges();
       return RedirectToAction("Index");
     }
+    
     [HttpPost]
     public ActionResult DeleteFlavor(int joinId)
     {

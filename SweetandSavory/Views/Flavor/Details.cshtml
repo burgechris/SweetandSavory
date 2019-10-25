@@ -7,14 +7,17 @@
 
 <h4>These flavors are offered in the following treats:</h4>
   <ul>
-  @foreach(var join in Model.Treat)
-  {
-    <li>@Html.ActionLink($"{@join.Treat.TreatName}", "Details", "TreatName", new {id = @join.TreatId})</li>
-    @using (Html.BeginForm("DeleteFlavor", "Flavor"))
+    @foreach(var join in Model.Treat)
     {
-      @Html.Hidden("joinId", @join.TreatFlavorId)
-      <input type="submit" value="Delete"/>
+      <li>@Html.ActionLink($"{@join.Treat.TreatName}", "Details", "TreatName", new {id = @join.TreatId})</li>
+      @using (Html.BeginForm("DeleteFlavor", "Flavor"))
+      {
+        @Html.Hidden("joinId", @join.TreatFlavorId)
+        <input type="submit" value="Delete"/>
+      }
     }
-  }
   </ul>
-<p>@Html.ActionLink("Add flavor", "Create", new { id = Model.FlavorId})</p>
+
+<p>@Html.ActionLink("Back to flavors", "Index")</p>
+<p>@Html.ActionLink("Edit Flavor", "Edit", new { id = Model.FlavorId})</p>
+<p>@Html.ActionLink("Delete Flavor", "Delete", new { id = Model.FlavorId })</p>
