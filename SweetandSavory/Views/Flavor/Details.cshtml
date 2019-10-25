@@ -1,0 +1,20 @@
+@model SweetandSavory.Models.Flavor;
+@using SweetandSavory.Models;
+
+<h2>Flavor Details</h2>
+<hr />
+<h3>Flavor: @Html.DisplayFor(model => model.FlavorName)</h3>
+
+<h4>These flavors are offered in the following treats:</h4>
+  <ul>
+  @foreach(var join in Model.Flavors)
+  {
+    <li>@Html.ActionLink($"{@join.Flavor.FlavorName}", "Details", "Books", new {id = @join.FlavorId})</li>
+    @using (Html.BeginForm("DeleteFlavor", "Flavor"))
+    {
+      @Html.Hidden("joinId", @join.TreatFlavorId)
+      <input type="submit" value="Delete"/>
+    }
+  }
+  </ul>
+<p>@Html.ActionLink("Add flavor", "AddFlavor", new { id = Model.FlavorId })</p>

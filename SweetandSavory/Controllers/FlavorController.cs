@@ -13,7 +13,7 @@ using System;
 
 namespace SweetandSavory.Controllers
 {
-  [Authorize]
+  
   public class FlavorController : Controller
   {
     private readonly SweetandSavoryContext _db;

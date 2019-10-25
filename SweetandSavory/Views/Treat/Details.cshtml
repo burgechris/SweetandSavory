@@ -1,0 +1,14 @@
+@model SweetandSavory.Models.Treat;
+@using SweetandSavory.Models;
+
+<h2>Treat Details</h2>
+<hr />
+<h3>Treat: @Html.DisplayFor(model => model.TreatName)</h3>
+
+@foreach(var join in Model.Treat)
+{
+<h3>Treat: @Html.ActionLink($"{@join.Flavor.FlavorName}", "Details", "Flavors", new {id = @join.FlavorId })</h3>
+    
+} 
+
+<p>@Html.ActionLink("Add flavor", "AddFlavor", new { id = Model.TreatId})</p>
