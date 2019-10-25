@@ -11,4 +11,6 @@
     
 } 
 
-<p>@Html.ActionLink("Add flavor", "AddFlavor", new { id = Model.TreatId})</p>
+<p>@Html.ActionLink("Add a new flavor", "Create", new { id = Model.TreatId})</p>
+
+<p>@Html.ActionLink("Add an existing flavor", "AddFlavor", new { id = Model.TreatId})</p>
