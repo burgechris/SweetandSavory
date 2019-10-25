@@ -1,0 +1,18 @@
+@model SweetandSavory.Models.Flavor
+
+<h4>Add a new Author</h4>
+
+@using (Html.BeginForm())
+{
+    <label for="FlavorName">Flavor:</label>
+    @Html.TextBoxFor(model => model.FlavorName)
+
+    <label for="FlavorName">Second Flavor:</label>
+    @Html.TextBoxFor(model => model.FlavorName)
+
+    @Html.Label("Select Treat")
+    @Html.DropDownList("TreatId")
+
+    <input type="submit" value="Add new flavor" class="btn btn-default" />
+}
+<p>@Html.ActionLink("Show all flavors", "Index")</p>
