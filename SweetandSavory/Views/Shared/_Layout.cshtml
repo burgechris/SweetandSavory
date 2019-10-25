@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - SweetandSavory</title>
+    <title>@ViewData["Title"] Pierre's Treat Shack</title>
 
     <environment include="Development">
         <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
@@ -15,26 +15,53 @@
               crossorigin="anonymous"
               integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"/>
     </environment>
-    <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="~/css/styles.css" />
+    <link href="https://fonts.googleapis.com/css?family=Graduate&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <nav class="navbar navbar-expand-xl navbar-toggleable-lg navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">SweetandSavory</a>
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Library</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
-                    <ul class="navbar-nav flex-grow-1">
+
+                <div class="navbar-collapse collapse d-xl-inline-flex flex-xl-row">
+                    <ul class="navbar-nav flex-grow-1 mr-auto">
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                            
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" href="\">Home</a>
                         </li>
+
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Index" href="\Treat">All Treats</a>
                         </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Index" href="\Flavor">All Flavors</a>
+                        </li>
+                        
                     </ul>
+
+
+                        <div id="search"
+                        <form class="form-inline my-2 my-lg-0" method="post" action="/">
+                            <input class="form-control mr-sm-2" name="search" type="search" placeholder="Search" aria-label="Search">
+                            <button class="btn btn-lg btn-outline-primary my-2 my-sm-0" formaction="/Treat" type="submit">Treats</button>
+                            <button class="btn btn-lg btn-outline-primary my-2 my-sm-0" formaction="/Flavor"  type="submit">Flavors</button>
+                        </form>
+
+
+
+                        <ul class="navbar-nav flex-grow-1 mr-auto"> 
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Index" href="\Account">Login/Register</a>
+                            </li>
+                        </ul>
+
+
                 </div>
             </div>
         </nav>
@@ -48,7 +75,7 @@
 
     <footer class="border-top footer text-muted">
         <div class="container">
-            &copy; 2019 - SweetandSavory - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            &copy; 2019 - Treat Shack - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
     </footer>
 
