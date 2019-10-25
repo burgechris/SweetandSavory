@@ -13,22 +13,26 @@ using System;
 
 namespace SweetandSavory.Controllers
 {
-  
   public class FlavorController : Controller
   {
     private readonly SweetandSavoryContext _db;
+    private readonly UserManager<ApplicationUser> _userManager;
 
-    public FlavorController(SweetandSavoryContext db)
+    public FlavorController(UserManager<ApplicationUser> userManager, SweetandSavoryContext db)
     {
+      _userManager = userManager;
       _db = db;
     }
 
-    public ActionResult Index()
+    public async Task<ActionResult> Index()
     {
-      List<Flavor> model = _db.Flavor.ToList();
-      return View(model);
+      var userId = this.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+      var currentUser = await _userManager.FindByIdAsync(userId);
+      var userFlavors = _db.Flavor.Where(entry => entry.User.Id == currentUser.Id);
+      return View(userFlavors);
     }
 
+    [Authorize]
     public ActionResult Create()
     {
       ViewBag.TreatId = new SelectList(_db.Treat, "TreatId", "TreatName");
@@ -36,8 +40,10 @@ namespace SweetandSavory.Controllers
     }
 
     [HttpPost]
-    public ActionResult Create(Flavor flavor, int TreatId)
+    public async Task<ActionResult> Create(Flavor flavor, int TreatId)
     {
+      var userId = this.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+      var currentUser = await _userManager.FindByIdAsync(userId);
       _db.Flavor.Add(flavor);
       if (TreatId != 0)
       {
