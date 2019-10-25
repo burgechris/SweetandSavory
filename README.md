@@ -1,6 +1,6 @@
 # _Pierre's Treat Shack_
 
-#### _Add Treats and their respective flavors to a database, 2019_
+#### _Add Treats and their respective flavors to a database, 25 Oct 2019_
 
 #### By _**Christopher Burge**_
 
@@ -10,8 +10,14 @@ _Database with many-to-many relationships allows users to register and add treat
 
 ## Setup/Installation Requirements
 
-* _
-
+*_Open the Terminal_
+* _Clone this repository using this link: https://github.com/burgechris/SweetandSavory.git_
+* _Navigate to SweetandSavory project directory
+* _Navigate to the SweetandSavory subdirectory
+*_Run the command >dotnet ef migrations add Initial_
+*_Run the command >dotnet ef database update_
+*_Run the command >dotnet restore_
+*_Run the command >dotnet run_
 
 ## Known Bugs
 
