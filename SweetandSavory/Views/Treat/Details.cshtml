@@ -5,12 +5,18 @@
 <hr />
 <h3>Treat: @Html.DisplayFor(model => model.TreatName)</h3>
 
-<h4>These treats are offered in the following flavors:</h4>
-
-@foreach(var join in Model.Flavor)
+@if(@Model.Flavor.Count == 0)
 {
-<h3>Treat: @Html.ActionLink($"{@join.Flavor.FlavorName}", "Details", "Flavors", new {id = @join.FlavorId })</h3>
-    
+  <p>This category does not have any flavors associated to it.</p>
+}
+else{
+  <h4>These treats are offered in the following flavors:</h4>
+  <ul>
+    @foreach(var join in Model.Flavor)
+    {
+    <h3>Flavor: @Html.ActionLink($"{@join.Flavor.FlavorName}", "Details", "Flavors", new {id = @join.FlavorId })</h3>
+    }
+  </ul>
 } 
 
 <p>@Html.ActionLink("Add a new flavor", "Create", new { id = Model.TreatId})</p>

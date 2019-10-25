@@ -22,12 +22,12 @@ namespace SweetandSavory.Controllers
       _db = db;
     }
 
-
     public ActionResult Index()
     {
-      return View(_db.Treat.ToList());
+      List<Treat> model = _db.Treat.ToList();
+      return View(model);
     }
-    
+
     public ActionResult Details(int id)
     {
       var thisTreat = _db.Treat
@@ -52,8 +52,6 @@ namespace SweetandSavory.Controllers
       _db.SaveChanges();
       return RedirectToAction("Index");
     }
-
-
 
     [HttpPost]
     public ActionResult Index(string search)

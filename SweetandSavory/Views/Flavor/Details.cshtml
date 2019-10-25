@@ -9,7 +9,7 @@
   <ul>
   @foreach(var join in Model.Treat)
   {
-    <li>@Html.ActionLink($"{@join.Flavor.FlavorName}", "Details", "FlavorName", new {id = @join.FlavorId})</li>
+    <li>@Html.ActionLink($"{@join.Treat.TreatName}", "Details", "TreatName", new {id = @join.TreatId})</li>
     @using (Html.BeginForm("DeleteFlavor", "Flavor"))
     {
       @Html.Hidden("joinId", @join.TreatFlavorId)
