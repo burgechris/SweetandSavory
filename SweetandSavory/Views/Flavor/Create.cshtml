@@ -7,10 +7,7 @@
     <label for="FlavorName">Flavor:</label>
     @Html.TextBoxFor(model => model.FlavorName)
 
-    <label for="FlavorName">Second Flavor:</label>
-    @Html.TextBoxFor(model => model.FlavorName)
-
-    @Html.Label("Select Treat")
+    @Html.LabelFor(model => model.Treat)
     @Html.DropDownList("TreatId")
 
     <input type="submit" value="Add new flavor" class="btn btn-default" />

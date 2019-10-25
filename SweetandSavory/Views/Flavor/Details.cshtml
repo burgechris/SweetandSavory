@@ -9,7 +9,7 @@
   <ul>
   @foreach(var join in Model.Treat)
   {
-    <li>@Html.ActionLink($"{@join.Flavor.FlavorName}", "Details", "Books", new {id = @join.FlavorId})</li>
+    <li>@Html.ActionLink($"{@join.Flavor.FlavorName}", "Details", "FlavorName", new {id = @join.FlavorId})</li>
     @using (Html.BeginForm("DeleteFlavor", "Flavor"))
     {
       @Html.Hidden("joinId", @join.TreatFlavorId)
@@ -17,4 +17,4 @@
     }
   }
   </ul>
-<p>@Html.ActionLink("Add flavor", "AddFlavor", new { id = Model.FlavorId })</p>
+<p>@Html.ActionLink("Add flavor", "Create", new { id = Model.FlavorId})</p>

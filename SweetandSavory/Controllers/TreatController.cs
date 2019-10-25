@@ -25,9 +25,9 @@ namespace SweetandSavory.Controllers
 
     public ActionResult Index()
     {
-
       return View(_db.Treat.ToList());
     }
+    
     public ActionResult Details(int id)
     {
       var thisTreat = _db.Treat
@@ -38,7 +38,6 @@ namespace SweetandSavory.Controllers
     }
     public ActionResult Create()
     {
-      ViewBag.FlavorId = new SelectList(_db.Flavor, "FlavorId", "FlavorName");
       return View();
     }
 
@@ -102,6 +101,7 @@ namespace SweetandSavory.Controllers
       _db.SaveChanges();
       return RedirectToAction("Index");
     }
+    
     public ActionResult Delete(int id)
     {
       var thisTreat = _db.Treat.FirstOrDefault(treat => treat.TreatId == id);

@@ -31,6 +31,7 @@ namespace SweetandSavory.Controllers
 
     public ActionResult Create()
     {
+      ViewBag.TreatId = new SelectList(_db.Treat, "TreatId", "TreatName");
       return View();
     }
 
