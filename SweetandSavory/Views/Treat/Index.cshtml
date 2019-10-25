@@ -1,0 +1,16 @@
+@using SweetandSavory.Models;
+@model List<SweetandSavory.Models.Treat>;
+
+<h1>Treats</h1>
+
+@if (@Model.Count == 0)
+{
+  <h3>We haven't baked any treats, yet!</h3>
+} 
+
+@foreach (Treat treat in Model)
+{
+  <li>@Html.ActionLink($"{treat.TreatName}", "Details", new { id = treat.TreatId}) | @Html.ActionLink("Remove this treat", "Delete", new { id = treat.TreatId})</li>
+}
+<br>
+<p>@Html.ActionLink("Add new treat", "Create")</p>
