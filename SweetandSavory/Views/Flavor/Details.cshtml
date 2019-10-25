@@ -7,7 +7,7 @@
 
 <h4>These flavors are offered in the following treats:</h4>
   <ul>
-  @foreach(var join in Model.Flavors)
+  @foreach(var join in Model.Treat)
   {
     <li>@Html.ActionLink($"{@join.Flavor.FlavorName}", "Details", "Books", new {id = @join.FlavorId})</li>
     @using (Html.BeginForm("DeleteFlavor", "Flavor"))

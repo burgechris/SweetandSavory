@@ -16,13 +16,13 @@
               integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"/>
     </environment>
     <link rel="stylesheet" href="~/css/styles.css" />
-    <link href="<link href="https://fonts.googleapis.com/css?family=Amatic+SC:700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Amatic+SC:700&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
         <nav class="navbar navbar-expand-xl navbar-toggleable-lg navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Library</a>
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Pierre's Treat Shack</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -36,11 +36,11 @@
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Index" href="\Treat">All Treats</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Index" href="\Authors">All Treats</a>
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Index" href="\Flavor">All Flavors</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Index" href="\Books">All Flavors</a>
                         </li>
                         
                     </ul>
@@ -49,8 +49,8 @@
                         <div id="search"
                         <form class="form-inline my-2 my-lg-0" method="post" action="/">
                             <input class="form-control mr-sm-2" name="search" type="search" placeholder="Search" aria-label="Search">
-                            <button class="btn btn-lg btn-outline-primary my-2 my-sm-0" formaction="/Treat" type="submit">Treats</button>
-                            <button class="btn btn-lg btn-outline-primary my-2 my-sm-0" formaction="/Flavor"  type="submit">Flavors</button>
+                            <button class="btn btn-lg btn-outline-primary my-2 my-sm-0" formaction="/Authors" type="submit">Flavors</button>
+                            <button class="btn btn-lg btn-outline-primary my-2 my-sm-0" formaction="/Books"  type="submit">Treats</button>
                         </form>
 
 
@@ -75,7 +75,7 @@
 
     <footer class="border-top footer text-muted">
         <div class="container">
-            &copy; 2019 - Treat Shack - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            &copy; 2019 - Pierre's Treat Shack - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
     </footer>
 
